@@ -261,5 +261,12 @@ Up^^             Down^^           Miscellaneous           % 2(mc/num-cursors) cu
   (setq lsp-headerline-breadcrumb-enable t)
   :bind
   ("C-c l s" . lsp-ivy-workspace-symbol)) ;; 可快速搜索工作区内的符号（类名、函数名、变量名等）
+ 
+ (use-package lsp-ui
+  :ensure t
+  :config
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (setq lsp-ui-doc-position 'top))
 
  (provide 'init)

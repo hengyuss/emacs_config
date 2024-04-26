@@ -1,0 +1,5 @@
+(defun hello-world()
+	(interactive)
+	(message "hello,world")
+	)
+(provide 'hello-world)

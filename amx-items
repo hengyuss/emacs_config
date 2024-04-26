@@ -1,0 +1,23 @@
+
+;; ----- amx-history -----
+(
+ package-install
+ mc/edit-lines
+ mpc
+ bookmark-delete
+ customize-group
+ cd
+ 5x5
+)
+
+;; ----- amx-data -----
+(
+ (package-install . 10)
+ (sml/customize-faces . 1)
+ (sml/apply-theme . 1)
+ (customize-group . 3)
+ (bookmark-delete . 1)
+ (mpc . 1)
+ (hydra-undo-tree/body . 1)
+ (mc/edit-lines . 1)
+)

@@ -340,4 +340,7 @@ _Q_: Disconnect     _sl_: List locals        _bl_: Set log message
   :after (projectile)
   :init (counsel-projectile-mode))
 
+(use-package magit
+  :ensure t)
+
  (provide 'init)

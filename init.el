@@ -54,7 +54,7 @@
  '(custom-safe-themes
    '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "e29a6c66d4c383dbda21f48effe83a1c2a1058a17ac506d60889aba36685ed94" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(package-selected-packages
-   '(company rainbow-delimiters highlight-symbol tiny select-themes use-package-hydra hydra marginalia mc-extras which-key atom-one-dark-theme undo-tree good-scroll counsel ivy use-package)))
+   '(flycheck yasnippet-snippets yasnippet company rainbow-delimiters highlight-symbol tiny select-themes use-package-hydra hydra marginalia mc-extras which-key atom-one-dark-theme undo-tree good-scroll counsel ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -239,5 +239,27 @@ Up^^             Down^^           Miscellaneous           % 2(mc/num-cursors) cu
   :after yasnippet)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
+
+(use-package flycheck
+  :ensure t
+  :config
+  (setq truncate-lines nil) ; 如果单行信息很长会自动换行
+  :hook
+  (prog-mode . flycheck-mode))
+
+ (use-package lsp-mode
+  :ensure t
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l"
+	lsp-file-watch-threshold 500)
+  :hook 
+  (lsp-mode . lsp-enable-which-key-integration) ; which-key integration
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-completion-provider :none) ;; 阻止 lsp 重新设置 company-backend 而覆盖我们 yasnippet 的设置
+  (setq lsp-headerline-breadcrumb-enable t)
+  :bind
+  ("C-c l s" . lsp-ivy-workspace-symbol)) ;; 可快速搜索工作区内的符号（类名、函数名、变量名等）
 
  (provide 'init)

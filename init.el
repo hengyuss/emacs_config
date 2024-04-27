@@ -21,6 +21,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 ;;(require 'init-benchmarking) ;; Measure startup time
 (require 'hello-world)
+(require 'init-theme)
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -31,6 +32,8 @@
 
 
 ;; Process performance tuning
+(global-set-key (kbd "C-x C-j") 'dired-jump)
+
 (use-package hydra
   :ensure t)
 
@@ -44,7 +47,9 @@
 
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")))
+                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+						 ("melpa-stable" . "https://stable.melpa.org/packages/")
+						 ))
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -54,7 +59,7 @@
  '(custom-safe-themes
    '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "e29a6c66d4c383dbda21f48effe83a1c2a1058a17ac506d60889aba36685ed94" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(package-selected-packages
-   '(flycheck yasnippet-snippets yasnippet company rainbow-delimiters highlight-symbol tiny select-themes use-package-hydra hydra marginalia mc-extras which-key atom-one-dark-theme undo-tree good-scroll counsel ivy use-package)))
+   '(evil dracula-theme treemacs-projectile gnu-elpa-keyring-update magit counsel-projectile projectile dap-mode lsp-ivy lsp-ui lsp-mode flycheck yasnippet-snippets yasnippet company rainbow-delimiters highlight-symbol tiny select-themes use-package-hydra hydra marginalia mc-extras which-key atom-one-dark-theme undo-tree good-scroll counsel ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -342,5 +347,38 @@ _Q_: Disconnect     _sl_: List locals        _bl_: Set log message
 
 (use-package magit
   :ensure t)
+
+(defun file-name-only ()
+  "Get the current buffer file name without directory."
+  (file-name-nondirectory (buffer-name)))
+
+(defun file-name-only-noext ()
+  "Get the currennt buffer file name without directory and extension."
+  (file-name-sans-extension (file-name-only)))
+
+(use-package treemacs
+  :ensure t
+  :defer t
+  :config
+  (treemacs-tag-follow-mode)
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ;; ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag))
+  (:map treemacs-mode-map
+	("/" . treemacs-advanced-helpful-hydra)))
+
+(use-package treemacs-projectile
+  :ensure t
+  :after (treemacs projectile))
+
+(use-package lsp-treemacs
+  :ensure t
+  :after (treemacs lsp))
+
 
  (provide 'init)

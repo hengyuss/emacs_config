@@ -1,18 +1,18 @@
 
 ;; ----- amx-history -----
 (
+ evil-mode
+ c++-mode
  package-install
- mc/edit-lines
- mpc
- bookmark-delete
- customize-group
- cd
- 5x5
+ treemacs-projectile
+ compile
+ dired
+ add-dir-local-variable
 )
 
 ;; ----- amx-data -----
 (
- (package-install . 10)
+ (package-install . 23)
  (sml/customize-faces . 1)
  (sml/apply-theme . 1)
  (customize-group . 3)
@@ -20,4 +20,14 @@
  (mpc . 1)
  (hydra-undo-tree/body . 1)
  (mc/edit-lines . 1)
+ (recover-this-file . 1)
+ (package-refresh-contents . 1)
+ (mkdir . 2)
+ (dired . 4)
+ (add-dir-local-variable . 2)
+ (compile . 9)
+ (treemacs-projectile . 2)
+ (treemacs-create-workspace . 1)
+ (evil-mode . 3)
+ (c++-mode . 1)
 )

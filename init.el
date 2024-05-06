@@ -8,7 +8,6 @@
 
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
-(setq-default cursor-type 'box)
 
 (let ((minver "27.1"))
   (when (version< emacs-version minver)
@@ -22,13 +21,15 @@
 ;;(require 'init-benchmarking) ;; Measure startup time
 (require 'hello-world)
 (require 'init-theme)
-
+(require 'init-kbd)
+(require 'init-org)
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 
 ;; Adjust garbage collection threshold for early startup (see use of gcmh below)
 (setq gc-cons-threshold (* 128 1024 1024))
+(add-to-list 'load-path "~/src/org-mode/lisp")
 
 
 ;; Process performance tuning
@@ -46,8 +47,9 @@
 
 
 (require 'package)
-(setq package-archives '(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-                         ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+(setq package-archives '(
+                         ("melpa" . "https://melpa.org/packages/")
+						("gnu"   . "https://elpa.gnu.org/packages/")
 						 ("melpa-stable" . "https://stable.melpa.org/packages/")
 						 ))
 (package-initialize)
@@ -59,7 +61,7 @@
  '(custom-safe-themes
    '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "e29a6c66d4c383dbda21f48effe83a1c2a1058a17ac506d60889aba36685ed94" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default))
  '(package-selected-packages
-   '(evil dracula-theme treemacs-projectile gnu-elpa-keyring-update magit counsel-projectile projectile dap-mode lsp-ivy lsp-ui lsp-mode flycheck yasnippet-snippets yasnippet company rainbow-delimiters highlight-symbol tiny select-themes use-package-hydra hydra marginalia mc-extras which-key atom-one-dark-theme undo-tree good-scroll counsel ivy use-package)))
+   '(org-roam lsp-ui amx atom-one-dark-theme company counsel-projectile dap-mode dashboard dracula-theme evil flycheck gnu-elpa-keyring-update good-scroll highlight-symbol lsp-ivy magit marginalia mc-extras mwim rainbow-delimiters select-themes smart-mode-line-atom-one-dark-theme tiny treemacs-projectile undo-tree use-package-hydra which-key yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -379,6 +381,7 @@ _Q_: Disconnect     _sl_: List locals        _bl_: Set log message
 (use-package lsp-treemacs
   :ensure t
   :after (treemacs lsp))
+
 
 
  (provide 'init)

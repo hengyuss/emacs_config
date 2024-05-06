@@ -2,4 +2,9 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-()
+(("org-capture-last-stored"
+ (filename . "~/org/roam/node3-20240429105421.org")
+ (front-context-string)
+ (rear-context-string . "last_modified: \n")
+ (position . 126))
+)

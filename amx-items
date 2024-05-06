@@ -1,18 +1,18 @@
 
 ;; ----- amx-history -----
 (
- evil-mode
- c++-mode
+ org-version
+ org-mode
  package-install
- treemacs-projectile
- compile
- dired
- add-dir-local-variable
+ package-list-packages
+ package-install-from-buffer
+ package-refresh-contents
+ org-agenda
 )
 
 ;; ----- amx-data -----
 (
- (package-install . 23)
+ (package-install . 48)
  (sml/customize-faces . 1)
  (sml/apply-theme . 1)
  (customize-group . 3)
@@ -21,13 +21,20 @@
  (hydra-undo-tree/body . 1)
  (mc/edit-lines . 1)
  (recover-this-file . 1)
- (package-refresh-contents . 1)
+ (package-refresh-contents . 2)
  (mkdir . 2)
  (dired . 4)
  (add-dir-local-variable . 2)
- (compile . 9)
- (treemacs-projectile . 2)
- (treemacs-create-workspace . 1)
- (evil-mode . 3)
- (c++-mode . 1)
+ (org-mode . 6)
+ (make-directory . 1)
+ (evil-mode . 2)
+ (org-agenda . 19)
+ (org-version . 3)
+ (quit-windows-on . 1)
+ (exit-recursive-edit . 1)
+ (xterm-mouse-mode . 1)
+ (package-upgrade . 1)
+ (package-delete . 10)
+ (package-list-packages . 3)
+ (package-install-from-buffer . 1)
 )

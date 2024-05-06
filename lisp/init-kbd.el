@@ -1,4 +1,4 @@
-(etq confirm-kill-emacs #'yes-or-no-p)      ; 在关闭 Emacs 前询问是否确认关闭，防止误触
+(setq confirm-kill-emacs #'yes-or-no-p)      ; 在关闭 Emacs 前询问是否确认关闭，防止误触
 (electric-pair-mode t)                       ; 自动补全括号
 (add-hook 'prog-mode-hook #'show-paren-mode) ; 编程模式下，光标在括号上时高亮另一个括号
 (column-number-mode t)                       ; 在 Mode line 上显示列号
@@ -15,6 +15,7 @@
 (setq display-line-numbers-type 'relative)   ; （可选）显示相对行号
 (add-to-list 'default-frame-alist '(width . 90))  ; （可选）设定启动图形界面时的初始 Frame 宽度（字符数）
 (add-to-list 'default-frame-alist '(height . 55)) ; （可选）设定启动图形界面时的初始 Frame 高度（字符数）
+(global-set-key (kbd "C-j") nil)
 (global-set-key (kbd "C-j C-k") 'kill-whole-line)
 (global-set-key (kbd "RET") 'newline-and-indent)
 

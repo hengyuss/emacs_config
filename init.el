@@ -22,7 +22,7 @@
 (require 'hello-world)
 (require 'init-theme)
 (require 'init-kbd)
-(require 'init-org)
+(require 'init-org-second)
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
@@ -52,7 +52,6 @@
 						("gnu"   . "https://elpa.gnu.org/packages/")
 						 ("melpa-stable" . "https://stable.melpa.org/packages/")
 						 ))
-(package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

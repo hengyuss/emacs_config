@@ -15,4 +15,8 @@ File: dir,	Node: Top	This is the top of the INFO tree
 * Menu:
 
 Emacs misc features
+<<<<<<<< HEAD:elpa/ef-themes-1.8.0/dir
 * Ef-Themes: (ef-themes).       Colorful and legible themes.
+========
+* Fontaine: (fontaine).         Set font configurations using presets.
+>>>>>>>> 030433d (reconfig):elpa/fontaine-2.1.0/dir

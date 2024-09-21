@@ -64,6 +64,7 @@
   (require 'init-completion)            ; 补全系统
   (require 'init-tools)                 ; 相关工具
   (require 'init-base)                  ; 一些基本配置
+  (require 'init-dev)                   ; 开发相关配置
   )
 
 (provide 'init)

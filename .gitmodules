@@ -1,0 +1,3 @@
+[submodule "quelpa/build/org-super-links"]
+	path = quelpa/build/org-super-links
+	url = https://github.com/toshism/org-super-links.git

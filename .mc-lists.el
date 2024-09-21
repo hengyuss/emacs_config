@@ -3,9 +3,12 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	hydra-multiple-cursors/mc/mark-next-like-this
-	))
+        hydra-multiple-cursors/mc/mark-next-like-this
+        indent-region
+        org-backward-paragraph
+        org-forward-paragraph
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	))
+        ))

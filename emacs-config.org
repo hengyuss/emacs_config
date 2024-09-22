@@ -917,6 +917,12 @@ Emacs默认选择文本后直接输入，是不会直接删除所选择的文本
   )
 #+end_src
 
+** shurufa
+#+BEGIN_SRC emacs-lisp
+  (use-package rime
+    :custom
+    (default-input-method "rime"))
+#+END_SRC
 ** multiple-cursors多光标编辑
 [[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] 插件能让Emacs实现多光标编辑和移动。
 
@@ -925,7 +931,7 @@ Emacs默认选择文本后直接输入，是不会直接删除所选择的文本
   :ensure t
   :bind-keymap ("C-c o" . multiple-cursors-map)
   :bind (("C-`"   . mc/mark-next-like-this)
-         ("C-\\"  . mc/unmark-next-like-this)
+        ;; ("C-\\"  . mc/unmark-next-like-this)
          :map multiple-cursors-map
               ("SPC" . mc/edit-lines)
               (">"   . mc/mark-next-like-this)
@@ -942,7 +948,6 @@ Emacs默认选择文本后直接输入，是不会直接删除所选择的文本
   (setq mc/always-run-for-all t)
   )
 #+END_SRC
-
 ** init-edit.el 文件尾
 
 #+BEGIN_SRC emacs-lisp
@@ -1484,7 +1489,6 @@ Marked 2 is a mac app that renders markdown."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-org.el ends here
 #+END_SRC
-
 * init-completion.el
 :PROPERTIES:
 :HEADER-ARGS: :tangle lisp/init-completion.el :mkdirp yes
@@ -1935,8 +1939,11 @@ Emacs自带的vc设置。
 
 ** init-dev.el 文件尾
 #+BEGIN_SRC emacs-lisp
-
-(provide 'init-dev)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-dev.el ends here
+  (setq rime-user-data-dir "~/.config/fcitx/rime") ;; 暂时将
+;;这个设置输入法配置文件的代码放在这里，目前感觉是那个整理代码的插件会;;覆盖这个设置的目录
+  (provide 'init-dev)
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;; init-dev.el ends here
 #+END_SRC
+| 
+

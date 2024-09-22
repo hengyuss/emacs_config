@@ -40,6 +40,8 @@
   (setq magit-delta-hide-plus-minus-markers nil)
   )
 
-(provide 'init-dev)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-dev.el ends here
+(setq rime-user-data-dir "~/.config/fcitx/rime") ;; 暂时将
+;;这个设置输入法配置文件的代码放在这里，目前感觉是那个整理代码的插件会;;覆盖这个设置的目录
+  (provide 'init-dev)
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;; init-dev.el ends here

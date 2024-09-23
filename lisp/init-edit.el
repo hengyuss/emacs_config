@@ -151,15 +151,11 @@
   (avy-keys '(?a ?s ?d ?f ?g ?h ?j ?l ?q ?e ?r ?u ?i ?p ?n))
   )
 
-(use-package rime
-  :custom
-  (default-input-method "rime"))
-
 (use-package multiple-cursors
   :ensure t
   :bind-keymap ("C-c o" . multiple-cursors-map)
   :bind (("C-`"   . mc/mark-next-like-this)
-        ;; ("C-\\"  . mc/unmark-next-like-this)
+         ("C-\\"  . mc/unmark-next-like-this)
          :map multiple-cursors-map
               ("SPC" . mc/edit-lines)
               (">"   . mc/mark-next-like-this)

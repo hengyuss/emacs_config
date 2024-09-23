@@ -32,6 +32,10 @@
   (which-key-idle-delay 0.7)
   (which-key-add-column-padding 1))
 
+(use-package rime
+  :custom
+  (default-input-method "rime"))
+
 (provide 'init-tools)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-tools.el ends here
